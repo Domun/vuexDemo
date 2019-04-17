@@ -1,15 +1,24 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    <div class="linkblock">
+      <router-link to="/products">点击看添加购物车小demo</router-link>
+    </div>
+    <One></One>
+    <Two></Two>
   </div>
 </template>
 
 <script>
+import One from './one.vue'
+import Two from './two.vue'
 export default {
   name: 'home',
+  components: {
+    One: One,
+    Two: Two
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App, this is home'
     }
   }
 }

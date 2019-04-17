@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App'
 import router from './router'
+import '@/assets/css/iconfont.css'
 
 Vue.use(Vuex)
 Vue.config.productionTip = false
@@ -58,11 +59,34 @@ var moduleA = {
     }
   }
 }
-
+// modulecar 购物车添加功能
+var modulecar = {
+  // state 设置数据变量 http://www.dodomun.cn/img/base_img/update.jpg
+  state: {
+    newproducts: [
+      { name: '鼠标', price: 20, img: 'http://www.dodomun.cn/img/base_img/mouse.jpg' },
+      { name: '键盘', price: 40, img: 'http://www.dodomun.cn/img/base_img/keyboard.jpg' },
+      { name: '耳机', price: 60, img: 'http://www.dodomun.cn/img/base_img/earphone.jpg' },
+      { name: '显示屏', price: 80, img: 'http://www.dodomun.cn/img/base_img/screen.jpg' }
+    ],
+    shopcar: [
+    ]
+  },
+  mutations: {
+    addtocar (state, i) {
+      // console.log(state)
+      // console.log(i)
+      state.shopcar.push(state.newproducts[i])
+      // console.log(state.shopcar)
+      return state.shopcar
+    }
+  }
+}
 /* eslint-disable no-new */
 var store = new Vuex.Store({
   modules: {
-    moduleA
+    moduleA,
+    modulecar
   }
 })
 new Vue({
