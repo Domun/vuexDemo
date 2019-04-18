@@ -18,7 +18,15 @@
        </ul>
      </div>
      <div class="shopcar">
-        <router-link to="/shopcar"><i class="iconfont">&#xe600;</i></router-link>
+        <div class="shopcar-bd">
+          <div class="carblock">
+            <router-link to="/shopcar"><i class="iconfont">&#xe600;</i></router-link>
+          </div>
+          <div class="carlength" v-if="carlength != '0'">
+            <p v-if="carlength == '0'"></p>
+            <p v-else>{{carlength}}</p>
+         </div>
+        </div>
      </div>
   </div>
 </template>
@@ -28,13 +36,23 @@ export default {
   name: 'products',
   data () {
     return {
-      newproducts: this.$store.state.modulecar.newproducts
+      newproducts: this.$store.state.modulecar.newproducts,
+      shopcar: this.$store.state.modulecar.shopcar,
+      shopcarlist: this.$store.state.modulecar.cleanshopup
+    }
+  },
+  computed: {
+    carlength () {
+      return this.shopcarlist.length
     }
   },
   methods: {
     addshopcar (i) {
       // this.$store.commit('minusprice', 2) // 提交`minusPrice,payload为2
       this.$store.commit('addtocar', i)
+      // console.log(this.carlength)
+      this.$store.commit('cleanshopup')
+      alert('添加成功')
     }
   }
 }
@@ -47,6 +65,9 @@ export default {
 }
 li{
   list-style: none;
+}
+a{
+  text-decoration: none;
 }
 .goback{
   float: left;
@@ -75,4 +96,41 @@ li{
   flex: 1;
   text-align: center;
 }
+.shopcar{
+  position: fixed;
+  z-index: 10;
+  bottom: 10%;
+  right: 2%;
+}
+.shopcar-bd{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #80E3FC;
+  position: relative;
+}
+.shopcar .iconfont{
+  color: #ffffff;
+  font-size: 20px;
+}
+.carblock{
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+}
+.carlength{
+  position: absolute;
+  z-index: 11;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  top:-35%;
+  right: -20%;
+  background: #80E3FC;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+}
+
 </style>
