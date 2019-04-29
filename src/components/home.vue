@@ -1,24 +1,31 @@
 <template>
   <div class="home">
+    <header class="hd">
+      this is a VuxDemo, used VueX
+    </header>
     <div class="linkblock">
-      <router-link to="/products">点击看添加购物车小demo</router-link>
+      <ul class="link-items">
+        <li class="link-item" ref="list" :style="{background: color}">
+          <router-link to="/easy">简单的vuex</router-link>
+        </li>
+        <li class="link-item" :style="{background: color}">
+          <router-link to="/products">购物车demo</router-link>
+        </li>
+        <li class="link-item" :style="{background: color}">
+          <router-link to="/color">更换主题颜色demo</router-link>
+        </li>
+      </ul>
     </div>
-    <One></One>
-    <Two></Two>
   </div>
 </template>
 
 <script>
-import One from './one.vue'
-import Two from './two.vue'
+
 export default {
   name: 'home',
-  components: {
-    One: One,
-    Two: Two
-  },
   data () {
     return {
+      color: this.$store.state.themeColor.truecolor
     }
   }
 }
@@ -26,18 +33,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+a{
+  color: #eeeeee;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.hd{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.linkblock{
+  width: 90%;
+  padding: 5%;
 }
-a {
-  color: #42b983;
+.link-items{
+}
+.link-item{
+  height: 50px;
+  line-height: 50px;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+.link-item:first-of-type{
+  margin-top: 0px;
 }
 </style>

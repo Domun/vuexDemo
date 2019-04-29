@@ -19,10 +19,10 @@
      </div>
      <div class="shopcar">
         <div class="shopcar-bd">
-          <div class="carblock">
+          <div class="carblock" :style="{background: color}">
             <router-link to="/shopcar"><i class="iconfont">&#xe600;</i></router-link>
           </div>
-          <div class="carlength" v-if="carlength != '0'">
+          <div class="carlength" v-if="carlength != '0'" :style="{background: color}">
             <p v-if="carlength == '0'"></p>
             <p v-else>{{carlength}}</p>
          </div>
@@ -38,7 +38,8 @@ export default {
     return {
       newproducts: this.$store.state.modulecar.newproducts,
       shopcar: this.$store.state.modulecar.shopcar,
-      shopcarlist: this.$store.state.modulecar.cleanshopup
+      shopcarlist: this.$store.state.modulecar.cleanshopup,
+      color: this.$store.state.themeColor.truecolor
     }
   },
   computed: {
@@ -59,22 +60,6 @@ export default {
 </script>
 
 <style scoped>
-*{
-  margin: 0%;
-  padding: 0%;
-}
-li{
-  list-style: none;
-}
-a{
-  text-decoration: none;
-}
-.goback{
-  float: left;
-}
-.title{
-  text-align: center;
-}
 .products-block{
   width: 96%;
   padding: 0% 2%;
@@ -106,7 +91,7 @@ a{
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background: #80E3FC;
+  background: #4191EA;
   position: relative;
 }
 .shopcar .iconfont{
@@ -118,6 +103,7 @@ a{
   height: 100%;
   line-height: 40px;
   text-align: center;
+  border-radius: 50%;
 }
 .carlength{
   position: absolute;
@@ -127,7 +113,6 @@ a{
   height: 20px;
   top:-35%;
   right: -20%;
-  background: #80E3FC;
   text-align: center;
   line-height: 20px;
   border-radius: 10px;

@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/components/home'
+import easy from '@/components/easy'
 import one from '@/components/one'
 import two from '@/components/two'
 import shopcar from '@/components/shopcar'
 import products from '@/components/products'
+import color from '@/components/changecolor'
 
 Vue.use(Router)
 
@@ -14,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: home
+    },
+    {
+      path: '/easy',
+      name: 'easy',
+      component: easy
     },
     {
       path: '/one',
@@ -34,6 +41,11 @@ export default new Router({
       path: '/products',
       name: 'products',
       component: products
+    },
+    {
+      path: '/color',
+      name: 'color',
+      component: color
     }
   ]
 })

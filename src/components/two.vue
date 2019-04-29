@@ -1,5 +1,5 @@
 <template>
-    <div id="product-list-two">
+    <div id="product-list-two" :style="{background: color}">
         <h2>Product List Two</h2>
         <ul>
             <li v-for="(product , i) in products" :key="i">
@@ -16,7 +16,8 @@
 export default {
   data () {
     return {
-      products: this.$store.state.moduleA.products
+      products: this.$store.state.moduleA.products,
+      color: this.$store.state.themeColor.truecolor
     }
   },
   methods: {

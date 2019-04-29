@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import '@/assets/css/iconfont.css'
+import '@/assets/css/base.css'
 
 Vue.use(Vuex)
 Vue.config.productionTip = false
@@ -120,11 +121,55 @@ var modulecar = {
     }
   }
 }
+// themeColor主题颜色更换功能
+var themeColor = {
+  state: {
+    colorlist: [
+      {
+        name: '经典蓝',
+        color: '#4191EA',
+        on: true
+      },
+      {
+        name: '魅力红',
+        color: '#FE6363',
+        on: false
+      },
+      {
+        name: '活力蓝',
+        color: '#6C9BCE',
+        on: false
+      },
+      {
+        name: '孔雀绿',
+        color: '#00BEC8',
+        on: false
+      }
+    ],
+    truecolor: '#4191EA'
+  },
+  mutations: {
+    changecolor (state, i) {
+      // console.log(i)
+      var colorlist = state.colorlist
+      for (var j = 0; j < colorlist.length; j++) {
+        colorlist[j].on = false
+        if (j === i) {
+          colorlist[j].on = true
+          state.truecolor = colorlist[j].color
+        }
+        // console.log(colorlist[j].on)
+      }
+      return colorlist
+    }
+  }
+}
 /* eslint-disable no-new */
 var store = new Vuex.Store({
   modules: {
     moduleA,
-    modulecar
+    modulecar,
+    themeColor
   }
 })
 new Vue({

@@ -1,5 +1,5 @@
 <template>
-  <div id="product-list-one">
+  <div id="product-list-one" :style="{background: color}">
     <h2>Product List One</h2>
     <ul>
       <li v-for="(product , i) in products" :key="i">
@@ -15,7 +15,8 @@ export default {
   data () {
     return {
       // products: this.$store.state.products // 引入的是state中未计算过的数值
-      products: this.$store.getters.changeprice
+      products: this.$store.getters.changeprice,
+      color: this.$store.state.themeColor.truecolor
     }
   }
 }
@@ -23,7 +24,6 @@ export default {
 
 <style scoped>
 #product-list-one {
-  background: #fff8b1;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
   padding: 10px 20px;

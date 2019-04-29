@@ -1,0 +1,24 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #4191EA;
+}
+header{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .goback{
+    float: left;
+    margin-left: 20px;
+  }
+  .title{
+    text-align: center;
+  }

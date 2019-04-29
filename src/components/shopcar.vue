@@ -37,19 +37,6 @@ export default {
 </script>
 
 <style scoped>
-*{
-  margin: 0%;
-  padding: 0%;
-}
-li{
-  list-style: none;
-}
-.goback{
-  float: left;
-}
-.title{
-  text-align: center;
-}
 .tips{
   text-align: center;
   color: #888;
