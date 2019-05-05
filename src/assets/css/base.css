@@ -22,3 +22,15 @@ header{
   .title{
     text-align: center;
   }
+  .classicBlue{
+    background: #4191EA;
+  }
+  .charmRed{
+    background: #FE6363;
+  }
+  .vitalityBlue {
+    background: #6C9BCE;
+  }
+  .malachiteGreen{
+    background: #00BEC8;
+  }

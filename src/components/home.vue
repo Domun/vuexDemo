@@ -5,7 +5,7 @@
     </header>
     <div class="linkblock">
       <ul class="link-items">
-        <li class="link-item" ref="list" :style="{background: color}">
+        <li class="link-item" ref="list" :style="{background: color}" v-bind:class="{blue: isclass}">
           <router-link to="/easy">简单的vuex</router-link>
         </li>
         <li class="link-item" :style="{background: color}">
@@ -25,7 +25,8 @@ export default {
   name: 'home',
   data () {
     return {
-      color: this.$store.state.themeColor.truecolor
+      color: this.$store.state.themeColor.truecolor,
+      isclass: true
     }
   }
 }
