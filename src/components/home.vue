@@ -5,7 +5,7 @@
     </header>
     <div class="linkblock">
       <ul class="link-items">
-        <li class="link-item" ref="list" :style="{background: color}" v-bind:class="{blue: isclass}">
+        <li class="link-item" ref="list" :style="{background: color}" v-bind:class="{blue: isclass}" >
           <router-link to="/easy">简单的vuex</router-link>
         </li>
         <li class="link-item" :style="{background: color}">
@@ -14,19 +14,37 @@
         <li class="link-item" :style="{background: color}">
           <router-link to="/color">更换主题颜色demo</router-link>
         </li>
+        <li class="link-item" :style="{background: color}">
+          <router-link to="/chooseCity">城市选择 demo (store封装)</router-link>
+          <span class="city">
+            {{this.city}}
+          </span>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-
+// import {mapState} from 'Vuex'
 export default {
   name: 'home',
   data () {
     return {
       color: this.$store.state.themeColor.truecolor,
+      city: this.$store.state.chooseCity.city,
       isclass: true
+    }
+  },
+  mounted () {
+    // this.getCity()
+  },
+  computed: {
+    // ...mapState(['city'])
+  },
+  methods: {
+    getCity () {
+      console.log(this.city)
     }
   }
 }
@@ -57,5 +75,10 @@ a{
 }
 .link-item:first-of-type{
   margin-top: 0px;
+}
+.city{
+  float: right;
+  color: #ffffff;
+  margin-right: 20px;
 }
 </style>

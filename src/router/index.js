@@ -7,6 +7,7 @@ import two from '@/components/two'
 import shopcar from '@/components/shopcar'
 import products from '@/components/products'
 import color from '@/components/changecolor'
+import chooseCity from '@/components/chooseCity'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/color',
       name: 'color',
       component: color
+    },
+    {
+      path: '/chooseCity',
+      name: 'chooseCity',
+      component: chooseCity
     }
   ]
 })

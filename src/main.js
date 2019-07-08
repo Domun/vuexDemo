@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App'
 import router from './router'
+// import store from './store'
 import '@/assets/css/iconfont.css'
 import '@/assets/css/base.css'
 
@@ -164,12 +165,37 @@ var themeColor = {
     }
   }
 }
+// 城市选择
+// 先获取本地缓存的城市
+var defaultCity = '西安'
+try {
+  if (localStorage.city) {
+    defaultCity = localStorage.city
+  }
+} catch (e) {}
+
+var chooseCity = {
+  state: {
+    city: defaultCity
+  },
+  mutations: {
+    changeCity (state, city) {
+      // console.log(state)
+      // console.log(city)
+      state.city = city
+      try {
+        localStorage.city = city
+      } catch (e) {}
+    }
+  }
+}
 /* eslint-disable no-new */
 var store = new Vuex.Store({
   modules: {
     moduleA,
     modulecar,
-    themeColor
+    themeColor,
+    chooseCity
   }
 })
 new Vue({
