@@ -64,10 +64,10 @@ export default {
     },
     // 处理
     getcityinfosucc (res) {
-      console.log(res)
+      // console.log(res)
       if (res.data.ret) {
         var data = res.data.data
-        console.log(data)
+        // console.log(data)
         this.citylists = data.cities
         this.hotcities = data.hotCities
       }
